@@ -1,0 +1,79 @@
+.container{ 
+    align-items: center;
+    background-color: darkcyan;
+   
+}
+
+.sign-up-box {
+    display: flex;
+    align-items:center;
+    height:100vh;
+}
+#reg{
+    position: absolute;
+    top: 14em;
+    left: 44em;
+    /* bottom: 10em; */
+    color: white;
+}
+.sign-up-box form{
+    width: 30%;
+    box-sizing: border-box;
+    margin:0 auto;
+}
+.sign-up-box form input{
+    margin-top: 2%;
+    box-sizing: content-box;
+    box-shadow: 0 0px 0px 0px solid rgb(226, 226, 226);
+    border-color: #aaa;
+    width: 100%;
+    border-bottom: 1px solid #aaa; 
+    font-size: 1rem;
+    border-radius: 30px;
+    padding: 20px 20px 20px 20px;
+}
+.already{
+    margin:1% 0%;
+    color:white;
+    text-align:right;
+    /* font-size: 15px; */
+}
+.already span{
+    font-size: 17px;
+}
+#link{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 17px;    
+}
+.already{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    /* font-size: 12px; */
+    text-decoration: none;    
+}
+.btn-bg {
+    background-color: darkblue;
+    position: absolute;
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+    padding: 14px;
+    min-height: 20px;
+    min-width: 15%;
+    left: 45%;
+    margin: 5px 0;
+    /* bottom: 15%; */
+    font-size: 15px;
+    font-weight: 800;
+}
+.btn-bg:hover{
+    background-color: blue;
+    transition: 0.7s;
+}
+.btn-bg:focus{
+    outline-color: transparent;
+    outline-style: solid;
+}
+

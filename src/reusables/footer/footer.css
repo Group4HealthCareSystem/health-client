@@ -1,0 +1,30 @@
+.foot{
+    background-color: white;
+    padding-top: 7%;
+}
+.footer{
+    background-color: rgb(138, 187, 187);
+    display: flex;
+    justify-content: space-around;
+}
+.col-1{
+    width: 30%;
+}
+.col-2 ul li{
+    list-style: none;
+    margin-right: 5em;
+}
+.col-3{
+    width: 30%;
+}
+.sec-two{
+    /* margin: 5px; */
+    padding: 5px;
+}
+#copyright{
+    padding-left: 3%;
+    background-color: rgb(185, 180, 180);
+    margin: 0;
+    /* padding: 10px; */
+    font-size: 14px;
+}
