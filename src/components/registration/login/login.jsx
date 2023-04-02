@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './login.css';
 import { useState } from 'react';
 import axios from "axios";
+import {MdArrowCircleRight} from "react-icons/md"
+import Header from '../../../reusables/header/header';
+import { TokenContext } from '../../../routes/route';
 
 
 const Login = () => {
@@ -22,6 +25,8 @@ const Login = () => {
     setFormData(prevValue => {
         return {...prevValue, [name]:value}
     })}
+
+    const {token, setToken} = useContext(TokenContext);
     
     
   function handleSubmit(event) {
@@ -41,6 +46,9 @@ const Login = () => {
       .then(response => {
         
         console.log(response);
+        // console.log(response.data.access)
+        let accessToken = response.data.access
+        setToken(accessToken);
         navigate ("/Dashboard");
 
       })
@@ -53,8 +61,14 @@ const Login = () => {
 
     return ( 
         <div className='create-login'>
+            <Header />
             {/* <section className='login-box'> */}
-                <h1 id='wlc-back'>Welcome back</h1>
+                <div className="about-to">
+                    <li id="link"><Link to="/sign-up">Sign up instead </Link></li>
+                    <MdArrowCircleRight className='icon' size="30" color="white" /> 
+                </div>
+
+                <h2 id='wlc-back'>Welcome back</h2>
                 <form>
                     <input 
                         type="text" 
@@ -63,20 +77,15 @@ const Login = () => {
                         placeholder='email'
                         onChange={handleChange}
                     />
-
                     <input 
                         type="password"
                         name='password'
                         id=''
                         placeholder='password'
                         onChange={handleChange}
-
                     />
 
-                        <div className="about-to">
-                                <span>Create Account? </span>
-                            <li id="link"> <Link to="/sign-up">SignUp</Link></li>
-                        </div>
+                        
 
                         <div id="login-btn">
                         <button className="login-btn" type="submit" onClick={handleSubmit}

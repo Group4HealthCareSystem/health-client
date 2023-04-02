@@ -7,10 +7,6 @@ import Header from "../../reusables/header/header";
 
 
 const SignUp = () => {
-    // http://127.0.0.1:8000/
-
-
-    const registrationEndPoint ="http://localhost:8000/auth/users/";
 
     const navigate = useNavigate();
 
@@ -30,6 +26,7 @@ const SignUp = () => {
             return {...prevValue, [name]:value}
         })}
 
+    const registrationEndPoint ="http://localhost:8000/auth/users/";
 
     const handleSubmit = async (event) => {
         try {
@@ -53,28 +50,11 @@ const SignUp = () => {
 
         }
            }    
-    
-        
-    // const handleCC = (e) => {
-    //     if(e.target.checked){
-    //         alert("i have been checked")
-    //     }
-        
-    //    setTimeout(() =>  e.target.checked = false, 3000)
-    
-    // }
-
-      
 
     return ( 
         <div className="container">
 
             <Header />
-            {/* <div className="radio-btn">
-            <input className="radio" type="radio" onClick={handleCC} /> Doctor
-            <input className="radio" type="radio" onClick={handleCC} /> Patient
-            </div> */}
-
                 <div className="sign-up-box">
                     <span id="reg"><h1>Register</h1></span>
                     <form>
