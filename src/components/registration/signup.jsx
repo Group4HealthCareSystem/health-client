@@ -18,7 +18,6 @@ const SignUp = () => {
     })
 
 
-
     const handleChange = (event) => {
         const {name , value} = event.target;
 
@@ -31,7 +30,9 @@ const SignUp = () => {
     const handleSubmit = async (event) => {
         try {
             event.preventDefault();
-
+           
+            if(userData.password.length <= 5) alert("Password too short");
+            
             let sendData = {
                 first_name:userData.first_name,
                 last_name:userData.last_name,
@@ -46,7 +47,7 @@ const SignUp = () => {
                 navigate("/login")
     
         } catch (error) {
-            alert(`Registration Failed: ${error.message}`);
+            alert(`${error.message}`);
 
         }
            }    

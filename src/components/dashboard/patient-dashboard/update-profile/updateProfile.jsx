@@ -1,6 +1,5 @@
 import "./updateProfile.css";
-// import axios  from "axios";
-
+import Header from "../../../../reusables/header/header";
 import React, { useContext, useState } from "react";
 import { TokenContext } from "../../../../routes/route";
 
@@ -41,7 +40,7 @@ const ProfileUpdateForm = () => {
 
     // Authorization: `Bearer ${localStorage.getItem("token")}`,
 
-    fetch("http://localhost:8000/user/profile/me/", {
+    fetch("http://localhost:8000/user/profile/me/", formData, {
       method: "PUT",
       headers: {
         Authorization : `Bearer ${token}`,
@@ -52,6 +51,7 @@ const ProfileUpdateForm = () => {
     })
       .then((response) => response.json())
       .then((data) => {
+        if(formData.phone.length > 11) alert("Phone number must not be more than 11")
         // Handle successful update
         console.log(data);
       })
@@ -78,11 +78,15 @@ const ProfileUpdateForm = () => {
    };
 
   return (
+    <div className="profile-update">
+      <Header />
     <form onSubmit={handleSubmit}>
       <label>
         Phone:
         <input
-          type="text"
+          required
+          maxLength={11}
+          type="number"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         />
@@ -90,18 +94,22 @@ const ProfileUpdateForm = () => {
       <label>
         Profile picture:
         <input
+          required
+          id="profile-picture"
           type="file"
           onChange={(e) => setProfilePicture(e.target.files[0])}
         />
       </label>
+
       <label>
         Gender:
-        <input
-          type="text"
-          value={gender}
-          onChange={(e) => setGender(e.target.value)}
-        />
+        <select required className="select" value={gender} onChange={(e) => setGender(e.target.value)}>
+          <option value=""></option>
+          <option value="male">Female</option>
+          <option value="female">Male</option>
+          </select>
       </label>
+
       <label>
         Address:
         <input
@@ -112,7 +120,7 @@ const ProfileUpdateForm = () => {
       </label>
       <label>
         Blood group:
-        <select value={bloodGroup} onChange={(e) => setBloodGroup(e.target.value)}>
+        <select required className="select" value={bloodGroup} onChange={(e) => setBloodGroup(e.target.value)}>
           <option value=""></option>
           <option value="A+">A+</option>
           <option value="A-">A-</option>
@@ -126,7 +134,7 @@ const ProfileUpdateForm = () => {
       </label>
       <label>
         Genotype:
-        <select value={genotype} onChange={(e) => setGenotype(e.target.value)}>
+        <select required className="select" value={genotype} onChange={(e) => setGenotype(e.target.value)}>
           <option value=""></option>
           <option value="AA">AA</option>
           <option value="AS">AS</option>
@@ -135,12 +143,15 @@ const ProfileUpdateForm = () => {
           <option value="SC">SC</option>
         </select>
       </label>
+
       <label>
         Medical history:
-        <input type="file" onChange={(e) => setMedicalHistory(e.target.files[0])} />
+        <input type="fill"  onChange={(e) => setMedicalHistory(e.target.files[0])} />
       </label>
-      <button type="submit">Submit</button>
+
+      <button id="buttn" type="submit">Submit</button>
     </form>
+    </div>
     );
 };
 

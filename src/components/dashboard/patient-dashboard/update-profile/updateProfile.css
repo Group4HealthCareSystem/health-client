@@ -1,3 +1,49 @@
-/* .patient-section{
+.profile-update{
     background-color: darkcyan;
-} */
+    height: 90%;
+    width: 100%;
+    
+}
+.profile-update form{
+    width: 70%;
+    margin-left: 35%;
+    margin-right: 30%;
+    bottom: 10px;
+    padding: 5%;
+        /* display: block; */
+    /* justify-content: center; */
+}
+
+.profile-update input{
+    display: block;
+    box-sizing: content-box;
+    box-shadow: 0 0px 0px 0px solid rgb(226, 226, 226);
+    border-color: #aaa;
+    /* border-style: none; */
+    border-style: solid;
+    width: 30%;
+    font-size: 1.0rem;
+    border-radius: 20px; 
+    padding: 20px 20px 20px 20px;
+    margin-top: 2%;
+}
+
+.profile-update .select{
+    /* width: 20%; */
+    display: block;
+}
+#profile-picture{
+    border-style: none;
+}
+.select{
+    width: 20%;
+    /* height: 20%; */
+}
+#buttn{
+    width: 20%;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+    margin-left: 7%;
+    margin-top: 1%;
+    font-size: 14px;
+}

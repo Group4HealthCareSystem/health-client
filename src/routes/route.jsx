@@ -28,6 +28,7 @@ const RoutePage = () => {
                 <Route path="/patient-dashboard"  Component={BookAppointment} />
                 <Route path="/book-appointment" Component={BookAppointment} />
                 <Route path="/ProfileUpdateForm" Component={ProfileUpdateForm} />
+                {/* <Route path="/" */}
             </Routes> 
         </TokenContext.Provider>
         </>
