@@ -19,7 +19,7 @@ const RoutePage = () => {
         <>
         <TokenContext.Provider value={{token, setToken}}>
            <Routes>
-                <Route path="/home" Component={Home} /> 
+                <Route path="/" Component={Home} /> 
                 <Route path="/sign-up" Component={SignUp} />
                 <Route path="/login" Component={Login} />
                 <Route path="/login" Component={Dashboard} />
