@@ -10,7 +10,7 @@ Healthcare professionals can view their appointment schedules
 Installation
 To run this app locally, follow these steps:
 
-Clone the repository: git clone https://github.com/Group4HealthCareSystem/health-client/healthcare-app.git
+Clone the repository: git clone https://github.com/Group4HealthCareSystem/health-client
 Navigate to the project directory: cd healthcare-app
 Install dependencies: npm install
 Start the app: npm start
