@@ -7,7 +7,6 @@ import Header from "../../reusables/header/header";
 
 
 const SignUp = () => {
-
     const navigate = useNavigate();
 
     const [userData, setUserData] = useState({
@@ -28,10 +27,12 @@ const SignUp = () => {
     const registrationEndPoint ="http://localhost:8000/auth/users/";
 
     const handleSubmit = async (event) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         try {
             event.preventDefault();
            
-            if(userData.password.length <= 5) alert("Password too short");
+            if(userData.password.length <= 5) alert("Password is too short");
+            if(!emailRegex.test(userData.email)) alert("Email is not valid");
             
             let sendData = {
                 first_name:userData.first_name,
@@ -40,17 +41,19 @@ const SignUp = () => {
                 password:userData.password
             }
             console.log(sendData);
-    
-            await axios.post(registrationEndPoint, sendData)
+
+
+                await axios.post(registrationEndPoint, sendData)
      
                 alert("Registration Successful");
                 navigate("/login")
     
-        } catch (error) {
-            alert(`${error.message}`);
-
-        }
+                } 
+           catch (error) {
+                    alert(`${error.message}`);
+                }
            }    
+
 
     return ( 
         <div className="container">
